@@ -1,7 +1,6 @@
 package com.trianaTourist.cynthiaLab.validacion.anotaciones;
 
 import com.trianaTourist.cynthiaLab.validacion.validadores.POICheckValidator;
-import com.trianaTourist.cynthiaLab.validacion.validadores.UrlValidlValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

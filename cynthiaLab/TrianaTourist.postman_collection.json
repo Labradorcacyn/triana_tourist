@@ -6,76 +6,449 @@
 	},
 	"item": [
 		{
-			"name": "POI",
+			"name": "Correctas",
 			"item": [
 				{
-					"name": "Lista de Puntos de interés",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/poi/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"poi",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Un punto de interés",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/poi/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"poi",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Crear un punto de interés",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Parque Maria Luisa\",\r\n    \"location\": \"37.3740008,-5.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": \"Parque\",\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"http://sevillando.net/wp-content/uploads/2017/10/Parque-de-Maria-Luisa-1024x683.jpeg\",\r\n    \"photo3\": \"https://centrohistorico.info/wp-content/uploads/2020/09/a19444fe9f82dacc6938f1fbd4033523.jpg\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "POI",
+					"item": [
+						{
+							"name": "Lista de Puntos de interés",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/poi/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/poi/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"poi",
-								""
-							]
+						{
+							"name": "Un punto de interés",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/poi/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear un punto de interés",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Parque Maria Luisa\",\r\n    \"location\": \"37.3740008,-5.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": \"Parque\",\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"http://sevillando.net/wp-content/uploads/2017/10/Parque-de-Maria-Luisa-1024x683.jpeg\",\r\n    \"photo3\": \"https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/parque-de-maria-luisa.jpg\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/poi/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Parque Maria Luisa\",\r\n    \"location\": \"37.3740008,-5.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": \"Parque\",\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"http://sevillando.net/wp-content/uploads/2017/10/Parque-de-Maria-Luisa-1024x683.jpeg\",\r\n    \"photo3\": \"https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/parque-de-maria-luisa.jpg\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/poi/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar punto de interés",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/poi/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "Categoria",
+					"item": [
+						{
+							"name": "Nueva categoria",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoria\": \"Restaurantes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/poi/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Todas las categorías",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/poi/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/poi/category/Parque",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										"category",
+										"Parque"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Rutas",
+					"item": [
+						{
+							"name": "Todas las rutas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Una ruta",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una ruta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ruta de museos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/route/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar ruta",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar una ruta",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ruta de restaurantes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/route/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Añadir un punto de interés a una ruta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/2/poi/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"2",
+										"poi",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Incorrectas",
+			"item": [
+				{
+					"name": "POI",
+					"item": [
+						{
+							"name": "Errores de punto de interés",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"location\": \"37.3740008, -5212.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": \"Parque\",\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo3\": \"https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/parque-de-maria-luisa.jpg\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/poi/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"poi",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categoria",
+					"item": []
+				},
+				{
+					"name": "Rutas",
+					"item": [
+						{
+							"name": "Nombre unico",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ruta de museos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/route/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Agregar el mismo punto de interés a la ruta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/2/poi/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"2",
+										"poi",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}

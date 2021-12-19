@@ -21,13 +21,14 @@ public class ApiError {
     private String mensaje;
     private String ruta;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm")
-    private LocalDateTime fecha;
+    @Builder.Default
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fecha = LocalDateTime.now();
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<ApiSubError> subErrores;
 
-    public ApiError(HttpStatus estado, String mensaje, String ruta){
+    public ApiError(HttpStatus estado, String mensaje, String ruta) {
         this.estado = estado;
         this.codigo = estado.value();
         this.mensaje = mensaje;
@@ -35,7 +36,7 @@ public class ApiError {
         this.ruta = ruta;
     }
 
-    public ApiError(HttpStatus estado, String mensaje, String ruta, List<ApiSubError> subErrores){
+    public ApiError(HttpStatus estado, String mensaje, String ruta, List<ApiSubError> subErrores) {
         this(estado, mensaje, ruta);
         this.subErrores = subErrores;
     }

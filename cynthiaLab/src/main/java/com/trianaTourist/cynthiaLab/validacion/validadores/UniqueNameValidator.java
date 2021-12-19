@@ -18,6 +18,9 @@ public class UniqueNameValidator implements ConstraintValidator<UniqueName, Stri
 
     @Override
     public boolean isValid(String route, ConstraintValidatorContext constraintValidatorContext) {
+        if(repository == null){
+            return true;
+        }
         return StringUtils.hasText(route) && !repository.existsByName(route);
     }
 }

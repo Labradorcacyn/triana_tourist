@@ -1,6 +1,5 @@
-package com.trianaTourist.cynthiaLab.dto.converter;
+package com.trianaTourist.cynthiaLab.dtos.poiDtos;
 
-import com.trianaTourist.cynthiaLab.dto.dtos.POIDto;
 import com.trianaTourist.cynthiaLab.model.POI;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +10,6 @@ public class POIDtoConverter {
         return POI.builder()
                 .categoria(poiDto.getCategoria())
                 .coverPhoto(poiDto.getCoverPhoto())
-                .id(poiDto.getId())
                 .date(poiDto.getDate())
                 .description(poiDto.getDescription())
                 .location(poiDto.getLocation())
@@ -19,5 +17,9 @@ public class POIDtoConverter {
                 .photo2(poiDto.getPhoto2())
                 .photo3(poiDto.getPhoto3())
                 .build();
+    }
+    
+    public String dtoPostCategoriatoString(DtoPostCategoria dtoPostCategoria){
+        return dtoPostCategoria.getCategoria();
     }
 }

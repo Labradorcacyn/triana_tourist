@@ -31,12 +31,12 @@ public class POICheckValidator implements ConstraintValidator<POICheck,String> {
         if(repository.findById(Long.parseLong(idRouteValue)).isPresent()){
             Route ruta = repository.findById(Long.parseLong(idRouteValue)).get();
             ruta.getSteps().stream().map(poi->{
-                if(!poi.getId().equals(Long.parseLong(idPOIValue))){
-                    return false;
+                if(poi.getId().equals(Long.parseLong(idPOIValue))){
+                    return true;
                 }
-                return null;
+                return false;
             });
         }
-        return true;
+        return false;
     }
 }

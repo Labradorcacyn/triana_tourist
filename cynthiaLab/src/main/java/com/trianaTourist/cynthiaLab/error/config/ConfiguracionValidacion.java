@@ -8,6 +8,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
 public class ConfiguracionValidacion {
+
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -22,4 +23,5 @@ public class ConfiguracionValidacion {
         validator.setValidationMessageSource(messageSource());
         return validator;
     }
+
 }

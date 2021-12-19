@@ -3,10 +3,7 @@ package com.trianaTourist.cynthiaLab.model;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.UniqueName;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter @Setter
@@ -14,7 +11,7 @@ import java.util.List;
 @Entity @Builder
 public class Route {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue
     private Long id;
 
     @UniqueName
@@ -23,11 +20,7 @@ public class Route {
     @ManyToMany
     private List<POI> steps;
 
-    public void addPOI(POI poi){
-        this.steps.add(poi);
-    }
+    public void addPOI(POI poi){this.steps.add(poi);}
 
-    public void removePOI(POI poi){
-        this.steps.remove(poi);
-    }
+    public void removePOI(POI poi){this.steps.remove(poi);}
 }

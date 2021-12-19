@@ -18,7 +18,7 @@ public class UniqueCategoryValidator implements ConstraintValidator<UniqueCatego
     }
 
     @Override
-    public boolean isValid(String nombre, ConstraintValidatorContext constraintValidatorContext) {
-        return StringUtils.hasText(nombre) && !repository.existsByCategoria(nombre);
+    public boolean isValid(String categoria, ConstraintValidatorContext constraintValidatorContext) {
+        return StringUtils.hasText(categoria) && !repository.existsByCategoria(categoria);
     }
 }

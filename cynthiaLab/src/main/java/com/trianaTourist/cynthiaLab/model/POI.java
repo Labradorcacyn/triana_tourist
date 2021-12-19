@@ -1,18 +1,8 @@
 package com.trianaTourist.cynthiaLab.model;
 
-import com.trianaTourist.cynthiaLab.validacion.anotaciones.LocatedValid;
-import com.trianaTourist.cynthiaLab.validacion.anotaciones.UniqueCategory;
-import com.trianaTourist.cynthiaLab.validacion.anotaciones.UrlValid;
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter @Setter
@@ -20,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity @Builder
 public class POI {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue
     private Long id;
 
     private String name;

@@ -1,14 +1,17 @@
 package com.trianaTourist.cynthiaLab.validacion.anotaciones;
 
-import com.trianaTourist.cynthiaLab.validacion.validadores.UrlValidlValidator;
+import com.trianaTourist.cynthiaLab.validacion.validadores.UrlValidValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UrlValidlValidator.class)
+@Constraint(validatedBy = UrlValidValidator.class)
 public @interface UrlValid {
 
     String message () default "{POI.url.valid}";
@@ -20,10 +23,4 @@ public @interface UrlValid {
     String photo2();
 
     String photo3();
-
-    @Target({ ElementType.TYPE })
-    @Retention(RetentionPolicy.RUNTIME)
-    @interface List {
-        UrlValid[] value();
-    }
 }

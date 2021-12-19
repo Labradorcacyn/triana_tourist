@@ -1,8 +1,6 @@
-package com.trianaTourist.cynthiaLab.dto.dtos;
+package com.trianaTourist.cynthiaLab.dtos.poiDtos;
 
-import com.trianaTourist.cynthiaLab.validacion.anotaciones.ExistCategory;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.LocatedValid;
-import com.trianaTourist.cynthiaLab.validacion.anotaciones.UniqueCategory;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.UrlValid;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
@@ -16,11 +14,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @Builder
-@UrlValid(coverPhoto = "covePhoto", photo2 = "photo2", photo3 = "photo3")
-@ExistCategory(categoria = "categoria")
+@UrlValid(coverPhoto = "coverPhoto", photo2 = "photo2", photo3 = "photo3", message = "{POI.url.valid}")
 public class POIDto {
-
-    private Long id;
 
     @NotBlank(message = "{POI.name.blank}")
     private String name;
@@ -40,11 +35,10 @@ public class POIDto {
     private LocalDateTime date;
 
     @NotBlank(message = "{POI.categoria.blank}")
-    @UniqueCategory
     private String categoria;
 
     @URL
-    @NotNull
+    @NotNull(message = "{url.null}")
     private String coverPhoto;
 
     @URL

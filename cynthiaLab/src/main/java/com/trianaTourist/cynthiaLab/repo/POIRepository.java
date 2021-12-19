@@ -7,5 +7,4 @@ public interface POIRepository extends JpaRepository<POI, Long> {
 
     boolean existsByCategoria(String categoria);
     boolean existsByLocation(String location);
-
 }
