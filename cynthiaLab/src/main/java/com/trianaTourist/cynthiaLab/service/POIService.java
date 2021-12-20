@@ -1,7 +1,6 @@
 package com.trianaTourist.cynthiaLab.service;
 
 import com.trianaTourist.cynthiaLab.dtos.poiDtos.POIDtoConverter;
-import com.trianaTourist.cynthiaLab.dtos.poiDtos.DtoPostCategoria;
 import com.trianaTourist.cynthiaLab.dtos.poiDtos.POIDto;
 import com.trianaTourist.cynthiaLab.error.excpciones.ListEntityNotFoundException;
 import com.trianaTourist.cynthiaLab.error.excpciones.SingleEntityNotFoundException;
@@ -20,10 +19,9 @@ import java.util.List;
 public class POIService extends BaseService<POI, Long, POIRepository> {
 
     private final POIDtoConverter poiDtoConverter;
+    private final CategoriaService categoriaService;
 
     private final List<String> listaCategoria = Arrays.asList("Parque", "Museo", "Tienda");
-
-    //***********POI***********//
 
     public List<POI> ListaPoi() {
 
@@ -43,7 +41,7 @@ public class POIService extends BaseService<POI, Long, POIRepository> {
     public POI put(Long id, POIDto dto){
         return repositorio.findById(id).map(p->{
             p.setName(dto.getName());
-            p.setCategoria(dto.getCategoria());
+            p.setCategoria(categoriaService.findACategory(dto.getCategoria()));
             p.setCoverPhoto(dto.getCoverPhoto());
             p.setDate(dto.getDate());
             p.setDescription(dto.getDescription());
@@ -67,30 +65,4 @@ public class POIService extends BaseService<POI, Long, POIRepository> {
             repositorio.deleteById(id);
         }
     }
-
-    //***********CATEGORIA***********//
-
-    public DtoPostCategoria addCategoria(DtoPostCategoria dtoPostCategoria){
-        listaCategoria.add(poiDtoConverter.dtoPostCategoriatoString(dtoPostCategoria));
-        return dtoPostCategoria;
-    }
-
-    public List<String> getAllCategorias(){
-        if(listaCategoria.isEmpty()){
-            throw new ListEntityNotFoundException(Category.class);
-        }else
-            return listaCategoria;
-    }
-
-    public void removeCategoria(String categoria){
-        listaCategoria.remove(categoria);
-    }
-
-    /*public String putCategoria(String nombreAnterior ,String categoria){
-        listaCategoria.forEach(m->{
-            if(m.equals(nombreAnterior)){
-                m = categoria;
-            }
-        });
-    }*/
 }

@@ -1,5 +1,7 @@
 package com.trianaTourist.cynthiaLab.dtos.poiDtos;
 
+import com.trianaTourist.cynthiaLab.model.Categoria;
+import com.trianaTourist.cynthiaLab.validacion.anotaciones.ExistCategory;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.LocatedValid;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.UrlValid;
 import lombok.*;
@@ -34,11 +36,12 @@ public class POIDto {
     @Past
     private LocalDateTime date;
 
-    @NotBlank(message = "{POI.categoria.blank}")
-    private String categoria;
+    @ExistCategory
+    @NotNull(message = "{POI.categoria.blank}")
+    private Long categoria;
 
     @URL
-    @NotNull(message = "{url.null}")
+    @NotBlank(message = "{url.null}")
     private String coverPhoto;
 
     @URL

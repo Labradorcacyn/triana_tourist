@@ -1,5 +1,6 @@
 package com.trianaTourist.cynthiaLab.validacion.validadores;
 
+import com.trianaTourist.cynthiaLab.repo.CategoriaRepository;
 import com.trianaTourist.cynthiaLab.repo.POIRepository;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.UniqueCategory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import javax.validation.ConstraintValidatorContext;
 public class UniqueCategoryValidator implements ConstraintValidator<UniqueCategory, String> {
 
     @Autowired
-    private POIRepository repository;
+    private CategoriaRepository repository;
 
     @Override
     public void initialize(UniqueCategory constraintAnnotation) {
@@ -19,6 +20,6 @@ public class UniqueCategoryValidator implements ConstraintValidator<UniqueCatego
 
     @Override
     public boolean isValid(String categoria, ConstraintValidatorContext constraintValidatorContext) {
-        return StringUtils.hasText(categoria) && !repository.existsByCategoria(categoria);
+        return StringUtils.hasText(categoria) && !repository.existsByName(categoria);
     }
 }

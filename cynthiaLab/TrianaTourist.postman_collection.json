@@ -58,7 +58,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Parque Maria Luisa\",\r\n    \"location\": \"37.3740008,-5.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": \"Parque\",\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"http://sevillando.net/wp-content/uploads/2017/10/Parque-de-Maria-Luisa-1024x683.jpeg\",\r\n    \"photo3\": \"https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/parque-de-maria-luisa.jpg\"\r\n\r\n}",
+									"raw": "{\r\n    \"name\": \"Parque Maria Luisa\",\r\n    \"location\": \"37.3740008,-5.9918907\",\r\n    \"description\": \"Amplio parque destacado con plazas pintorescas, jardines paisajísticos, fuentes y monumentos.\",\r\n    \"date\": \"1914-04-18T17:09:42.411\",\r\n    \"categoria\": 1,\r\n    \"coverPhoto\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/05/parquemarialuisa_3.jpg\",\r\n    \"photo2\": \"http://sevillando.net/wp-content/uploads/2017/10/Parque-de-Maria-Luisa-1024x683.jpeg\",\r\n    \"photo3\": \"https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/parque-de-maria-luisa.jpg\"\r\n\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -135,29 +135,20 @@
 					"name": "Categoria",
 					"item": [
 						{
-							"name": "Nueva categoria",
+							"name": "Una categoria",
 							"request": {
-								"method": "POST",
+								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"categoria\": \"Restaurantes\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
-									"raw": "http://localhost:8080/poi/category",
+									"raw": "http://localhost:8080/category/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"poi",
-										"category"
+										"category",
+										"1"
 									]
 								}
 							},
@@ -169,15 +160,73 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/poi/categories",
+									"raw": "http://localhost:8080/category/",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"poi",
-										"categories"
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nueva categoria",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Restaurantes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar categoria",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Museos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"1"
 									]
 								}
 							},
@@ -189,16 +238,15 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/poi/category/Parque",
+									"raw": "http://localhost:8080/category/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"poi",
 										"category",
-										"Parque"
+										"1"
 									]
 								}
 							},

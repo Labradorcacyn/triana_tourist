@@ -21,7 +21,9 @@ public class POI {
 
     private LocalDateTime date;
 
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
     private String coverPhoto;
 

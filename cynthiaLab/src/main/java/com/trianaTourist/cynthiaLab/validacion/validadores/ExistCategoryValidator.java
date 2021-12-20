@@ -1,34 +1,23 @@
 package com.trianaTourist.cynthiaLab.validacion.validadores;
 
-import com.trianaTourist.cynthiaLab.repo.POIRepository;
+import com.trianaTourist.cynthiaLab.repo.CategoriaRepository;
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.ExistCategory;
-import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ExistCategoryValidator implements ConstraintValidator<ExistCategory, String> {
+public class ExistCategoryValidator implements ConstraintValidator<ExistCategory, Long> {
 
     @Autowired
-    private POIRepository poiRepository;
+    private CategoriaRepository categoriaRepository;
 
-    private String categoria;
-    private boolean resp;
 
     @Override
-    public void initialize(ExistCategory constraintAnnotation) {
-        this.categoria = constraintAnnotation.categoria();
-    }
+    public void initialize(ExistCategory constraintAnnotation) {}
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        Object categoriaValue = PropertyAccessorFactory.forBeanPropertyAccess(categoria).getPropertyValue(categoria);
-        this.resp = false;
-        poiRepository.findAll().forEach(p->{
-            if(!p.getCategoria().equals(categoriaValue))
-                this.resp = true;
-        });
-        return resp;
+    public boolean isValid(Long s, ConstraintValidatorContext constraintValidatorContext) {
+        return s != null && categoriaRepository.existsById(s);
     }
 }

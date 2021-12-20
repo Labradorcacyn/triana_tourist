@@ -1,4 +1,4 @@
-package com.trianaTourist.cynthiaLab.dtos.poiDtos;
+package com.trianaTourist.cynthiaLab.dtos.categoriaDto;
 
 import com.trianaTourist.cynthiaLab.validacion.anotaciones.UniqueCategory;
 import lombok.*;
@@ -6,8 +6,8 @@ import lombok.*;
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @Builder
-public class DtoPostCategoria {
+public class CategoriaDto {
 
     @UniqueCategory
-    private String categoria;
+    private String name;
 }
