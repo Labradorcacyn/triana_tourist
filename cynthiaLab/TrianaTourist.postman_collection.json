@@ -233,7 +233,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "Borrar categoria",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -392,6 +392,28 @@
 										"2",
 										"poi",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar un punto de interés de la ruta",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/route/1/poi/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"route",
+										"1",
+										"poi",
+										"3"
 									]
 								}
 							},

@@ -50,4 +50,8 @@ public class RouteController {
     public Route addPOIToRoute(@PathVariable Long id1, @PathVariable Long id2) {
         return routeService.addPoi(id1,id2);
     }
+
+    @DeleteMapping("/{id1}/poi/{id2}")
+    public void deletePoiOfRoute(@PathVariable Long id1, @PathVariable Long id2){routeService.deletePoi(id1, id2);}
+
 }
