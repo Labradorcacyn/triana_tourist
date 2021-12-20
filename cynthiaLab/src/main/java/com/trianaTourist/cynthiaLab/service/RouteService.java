@@ -66,14 +66,14 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
         return repositorio.save(route);
     }
 
-    public void deletePoi(Long id1, Long id2){
+    public void deletePoi(Long id1, Long id2) {
         Route route = repositorio.getById(id1);
 
-        route.getSteps().forEach(p->{if(p.getId().equals(id2)){
+        if(route == null)
+            throw new SingleEntityNotFoundException(id1.toString(), Route.class);
+
+        if (poiService.findOne(id2) != null) {
             route.removePOI(poiService.findOne(id2));
-            repositorio.save(route);}
-            else
-                throw new POIRouteException(id2.toString(),POI.class);
-        });
+        }
     }
 }
